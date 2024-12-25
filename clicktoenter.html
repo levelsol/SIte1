@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click-To-Enter</title>
+    <link rel="icon" href="https://cdn.pfps.gg/pfps/7537-ai-made-pfp-description-thoughts-of-a-man.png" type="image/png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #000; /* Dark background for hacker feel */
+            color: #00FF00; /* Neon green text */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Clickable "Click to enter" text styling */
+        .click-to-enter {
+            font-weight: 700;
+            font-size: 32px;
+            color: #fff; /* White color */
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: color 0.3s ease-in-out;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .click-to-enter:hover {
+            color: #00FF00; /* Neon green on hover */
+        }
+
+        /* Adding hover animation */
+        .click-to-enter:active {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Particles background -->
+    <div id="particles-js"></div>
+
+    <!-- Clickable "Click to enter" text -->
+    <div class="click-to-enter" onclick="window.location.href='main.html?playMusic=true'">
+        Click to enter...
+    </div>
+
+    <audio id="background-music" loop autoplay>
+        <source src="/api/placeholder/audio" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Particles.js configuration for hacker theme
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 150 },
+                color: { value: '#00FF00' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    color: '#00FF00',
+                    opacity: 0.4
+                },
+                move: {
+                    enable: true,
+                    speed: 4,
+                    direction: 'none',
+                    random: true
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

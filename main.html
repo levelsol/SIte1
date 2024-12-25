@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GMbot</title>
+    <!-- Favicon added -->
+    <link rel="icon" href="https://cdn.pfps.gg/pfps/7537-ai-made-pfp-description-thoughts-of-a-man.png" type="image/png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 2rem 0;
+            text-shadow: 0 0 10px #0f0;
+        }
+
+        .discord-card {
+            background: rgba(0, 20, 0, 0.7);
+            border: 1px solid #0f0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 400px;
+            animation: pulse 2s infinite;
+        }
+
+        .discord-card iframe {
+            border-radius: 10px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .thought-text {
+            margin-top: 1rem;
+            color: #0f0;
+            font-size: 1rem;
+            text-align: center;
+            text-shadow: 0 0 5px #0f0;
+            font-family: 'Courier New', monospace;
+        }
+
+        #music-control {
+            background: transparent;
+            border: 1px solid #0f0;
+            color: #0f0;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+            margin-top: 1rem;
+        }
+
+        #music-control:hover {
+            background: #0f0;
+            color: #000;
+        }
+
+        .github-logo {
+            margin: 0 auto 1rem;
+            text-align: center;
+        }
+
+        .github-logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%; /* Makes the image circular */
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            border: 2px solid #0f0; /* Optional: Add a glowing border */
+        }
+
+        .github-logo img:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px #0f0; /* Glowing effect on hover */
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px rgba(0, 255, 0, 0.2); }
+            50% { box-shadow: 0 0 30px rgba(0, 255, 0, 0.4); }
+            100% { box-shadow: 0 0 20px rgba(0, 255, 0, 0.2); }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="content">
+        <h1>GMbot.exe</h1>
+        
+        <div class="discord-card">
+            <iframe 
+                src="https://lanyard.cnrad.dev/api/808574215690256414?borderRadius=5px&idleMessage=Currently%20idle...&bg=000000"
+                frameborder="0"
+                height="200px"
+                width="350px">
+            </iframe>
+
+            <p class="thought-text">
+                "I spend a lot of time exploring forums(breach,cracked,patched,crax.etc}.I enjoy testing tools, figuring out how they work, and even creating my own"
+            </p>
+        </div>
+
+        <!-- GitHub logo and link -->
+        <div class="github-logo">
+            <a href="https://github.com/brokengg4" target="_blank">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo">
+            </a>
+        </div>
+
+        <!-- Music control button -->
+        <button id="music-control">INITIALIZE_SOUND.exe</button>
+        <audio id="background-music" loop>
+            <source src="https://r2.guns.lol/643bac53-dfb4-4956-948c-ae56ad490657.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        // Particles.js configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80 },
+                color: { value: '#0f0' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    color: '#0f0',
+                    opacity: 0.4
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: true
+                }
+            }
+        });
+
+        // Music control
+        const music = document.getElementById('background-music');
+        const button = document.getElementById('music-control');
+        let isPlaying = false;
+
+        // Function to get URL parameters
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Check if music should play on load
+        if (getQueryParameter('playMusic') === 'true') {
+            music.play().then(() => {
+                isPlaying = true;
+                button.textContent = 'TERMINATE_SOUND.exe';
+            }).catch((error) => {
+                console.error('Music autoplay failed:', error);
+            });
+        }
+
+        button.addEventListener('click', () => {
+            if (isPlaying) {
+                music.pause();
+                button.textContent = 'INITIALIZE_SOUND.exe';
+            } else {
+                music.play();
+                button.textContent = 'TERMINATE_SOUND.exe';
+            }
+            isPlaying = !isPlaying;
+        });
+    </script>
+</body>
+</html>
